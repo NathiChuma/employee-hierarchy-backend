@@ -8,7 +8,7 @@ app.use(express.json());
 
 // Use the cors middleware
 app.use(cors({
-    origin: 'http://localhost:8080' // Only allow this specific origin
+    origin: 'https://employee-hierarchy-omega.vercel.app' // Only allow this specific origin
 }));
 
 app.use("/employees", employeeRoutes);
