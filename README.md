@@ -1,2 +1,2 @@
 # crud-node-firebase
- CRUD node.js + firebase tutorial
+ CRUD node.js + firebase
