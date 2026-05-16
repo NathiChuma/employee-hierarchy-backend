@@ -28,3 +28,6 @@ dist-ssr
 serviceAccountKey.json
 .env
 
+routes/data
+routes/employeeRoutes/seedEmployees.js
+routes/employeeRoutes/deleteAllEmployees.js
