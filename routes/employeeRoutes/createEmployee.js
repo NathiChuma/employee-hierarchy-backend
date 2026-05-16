@@ -1,4 +1,5 @@
 const { db } = require("../../firebase");
+const validateEmployee = require("../../utils/validateEmployee");
 
 const createEmployee = async (req, res) => {  
   try {
@@ -26,6 +27,12 @@ const createEmployee = async (req, res) => {
       managerId: managerId || null,
       email
     };
+
+    const validationError = await validateEmployee(employeeData);
+
+    if (validationError) {
+      return res.status(400).json({ error: validationError });
+    }
 
     await employeeRef.set(employeeData);
 

@@ -1,4 +1,5 @@
 const { db } = require("../../firebase");
+const validateEmployee = require("../../utils/validateEmployee");
 
 const updateEmployee = async (req, res) => {
 
@@ -17,11 +18,13 @@ const updateEmployee = async (req, res) => {
       email
     } = req.body;
 
-    // prevent employee managing themselves
-    if (managerId === id) {
-      return res.status(400).json({
-        error: "Employee cannot manage themselves"
-      });
+    const validationError = await validateEmployee(
+      req.body,
+      id
+    );
+
+    if (validationError) {
+      return res.status(400).json({ error: validationError });
     }
 
     await db.collection("employees").doc(id).update({
