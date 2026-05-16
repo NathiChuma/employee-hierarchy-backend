@@ -2,7 +2,6 @@ const express = require("express");
 
 const createEmployee = require("./createEmployee");
 const getEmployees = require("./getEmployees");
-const getEmployee = require("./getEmployee");
 const updateEmployee = require("./updateEmployee");
 const deleteEmployee = require("./deleteEmployee");
 
